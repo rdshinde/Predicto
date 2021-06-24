@@ -105,7 +105,7 @@ def model(request):
         lst.append(0) 
         lst.append(1)
 
-    print(lst)
+    # print(lst)
     ans = test.predict([lst])
     #print(ans[0])
     
