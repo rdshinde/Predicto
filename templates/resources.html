@@ -16,7 +16,7 @@
      <title>Predicto.com</title>
 </head>
 <body>
-    {% load static %}
+    
     <div class="title"><h1>Predicto </h1></div>
     <header class="sticky-top">
         <!-- Intro settings -->
@@ -83,8 +83,7 @@
         <h2 class="mb-4">
             Body Mass Index (BMI) Calculator
         </h2>
-        <form name="bmi">
-            {% csrf_token %}
+        
         <div class="input-group mb-4">
             <span class="input-group-text" id="inputGroup-sizing-default" name="weight">Weight (Kg)</span>
             <input type="float" id="weight" class="form-control" aria-label="Sizing example input" required aria-describedby="inputGroup-sizing-default">
@@ -98,11 +97,11 @@
 
 
         <button type="Submit" id="submit" class="btn btn-primary mb-4">Calculate</button><br><br>
-    </form>
+    
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">BMI</span>
-            <input type="float" class="form-control" aria-label="Sizing example input" disabled aria-describedby="inputGroup-sizing-default">
+            <input type="float" id="BMI" placeholder="BMI" class="form-control" aria-label="Sizing example input" disabled aria-describedby="inputGroup-sizing-default">
         </div>
     </div>
 </div>
