@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@media (min-width: 992px){
+    body{
+        background-color: #24272E;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+    
+    .title{
+        padding: 20px 10px 20px 10px;
+        text-align: center;
+        color: white;
+        margin: 0;
+    }
+    
+    
+    .title >h1{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 70px;
+        font-weight:bolder;
+    }
+    .footer{
+        text-align: center;
+        color: white;
+        top: 50px;
+        position: relative;
+    }
+    .footer > span{
+        margin:20px;
+    }
+    
+    .box{
+        background-image: url(/static/brain-removebg-preview.png);
+        background-repeat: no-repeat;
+        background-position-x: center;
+        
+    
+        border: 1px solid whitesmoke;
+        border-radius: 6px;
+        padding: 60px;
+        margin-top: 0px;
+        margin-left: 350px;
+        margin-right: 350px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    .description{
+        margin-top: 20px;
+    }
+    
+    .box:hover{
+        background-color: #0958f51a;
+    }
+        
+    
+}
