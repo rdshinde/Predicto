@@ -1,0 +1,396 @@
+{% extends 'base.html'%} {% block content %}
+
+<header class="masthead">
+  <div class="justify-content-center">
+    <div class="p-5 text-center">
+      <div class="box">
+        <div class="head">
+          <h2>Disease Prediction Using Machine Learning</h2>
+          <h3 class="mb-5">Stroke Prediction</h3>
+        </div>
+
+        <div class="mb-5">
+          <a
+            class="btn btn-outline-light btn-lg m-2"
+            href="#p-form"
+            role="button"
+            rel="nofollow"
+            target="_self"
+            >Start Predicting</a
+          >
+
+          <a
+            class="btn btn-outline-light btn-lg m-2"
+            href="https://en.wikipedia.org/wiki/Stroke"
+            target="_blank"
+            role="button"
+          >
+            Learn More
+          </a>
+        </div>
+        <div class="description">
+          <p>
+            A stroke is a medical condition in which poor blood flow to the
+            brain causes cell death.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="prediction-form" id="p-form">
+  <div id="intro-example" class="p-5 text-center bg-image">
+    <div class="box">
+      <h2 class="mb-4">Prediction Form</h2>
+      <form autocomplete="off" method="POST" action="{% url 'index' %}">
+        {% csrf_token %}
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Age</span>
+          <input
+            type="float"
+            class="form-control"
+            name="Age"
+            placeholder="Enter Your Age"
+            aria-label="Age"
+            aria-describedby="basic-addon1"
+            required
+          />
+        </div>
+        <br />
+        <select
+          name="Gender"
+          type="input"
+          class="form-select"
+          aria-label="Default select example"
+          required
+        >
+          <option selected>Gender</option>
+          <option name="Yes" value="1">Male</option>
+          <option name="No" value="2">Female</option>
+          <option name="No" value="2">Other</option></select
+        ><br /><br />
+        <select
+          name="MarageStatus"
+          type="input"
+          class="form-select"
+          aria-label="Default select example"
+          required
+        >
+          <option selected>Marrage Status</option>
+          <option name="Yes" value="1">Married</option>
+          <option name="No" value="2">Unmarried</option></select
+        ><br /><br />
+
+        <select
+          name="ResidentStatus"
+          type="input"
+          class="form-select"
+          aria-label="Default select example"
+          required
+        >
+          <option selected>Area of Resident</option>
+          <option name="Yes" value="1">Urban</option>
+          <option name="No" value="2">Rural</option></select
+        ><br /><br />
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">BMI</span>
+          <input
+            type="float"
+            class="form-control"
+            name="BMI"
+            placeholder="Enter Your Body Mass Index"
+            aria-label="BMI"
+            aria-describedby="basic-addon1"
+            required
+          />
+        </div>
+        <br />
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Glucose Level</span>
+          <input
+            type="float"
+            class="form-control"
+            name="Glucose"
+            placeholder="Enter Your Average Sugar Level"
+            aria-label="SugarLevel"
+            aria-describedby="basic-addon1"
+            required
+          />
+        </div>
+        <br />
+        <select
+          name="Hypertension"
+          type="input"
+          class="form-select"
+          aria-label="Default select example"
+          required
+        >
+          <option selected>Do you have Hypertension</option>
+          <option name="Yes" value="1">Yes</option>
+          <option name="No" value="2">No</option></select
+        ><br /><br />
+
+        <select
+          name="HeartDisease"
+          type="input"
+          class="form-select"
+          aria-label="Default select example"
+          required
+        >
+          <option selected>Do you have Heart Problem</option>
+          <option name="Yes" value="1">Yes</option>
+          <option name="No" value="2">No</option></select
+        ><br /><br />
+
+        <select
+          name="JobStatus"
+          type="input"
+          class="form-select"
+          aria-label="Default select example"
+          required
+        >
+          <option selected>Job Status</option>
+          <option name="govt" value="1">Government Job</option>
+          <option name="neverWorked" value="2">Never Worked</option>
+          <option name="private" value="3">Private Job</option>
+          <option name="seflEmployed" value="4">Self Employed</option>
+          <option name="child" value="5">Child (Not at work)</option></select
+        ><br /><br />
+
+        <select
+          name="smokeStatus"
+          type="input"
+          class="form-select"
+          aria-label="Default select example"
+          required
+        >
+          <option selected>Smoking Status</option>
+          <option name="smoke" value="1">Formerly Smoke</option>
+          <option name="neverSmoked" value="2">Never Smoked</option>
+          <option name="formerly-smoked" value="3">Smoke</option>
+        </select>
+
+        <br /><br />
+        <div class="submit">
+          <input type="submit" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="bmi-calculator">
+  <div class="box">
+    <div class="p-4 text-center">
+      <h2 class="mb-4">Body Mass Index (BMI) Calculator</h2>
+
+      <div class="input-group mb-4">
+        <span
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+          name="weight"
+          >Weight (Kg)</span
+        >
+        <input
+          type="float"
+          id="weight"
+          class="form-control"
+          aria-label="Sizing example input"
+          required
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+
+      <div class="input-group mb-5">
+        <span
+          class="input-group-text"
+          name="height"
+          id="inputGroup-sizing-default"
+          >Height (cm)</span
+        >
+        <input
+          type="float"
+          id="height"
+          class="form-control"
+          aria-label="Sizing example input"
+          required
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+
+      <button type="Submit" id="submit" class="btn btn-primary mb-4">
+        Calculate</button
+      ><br /><br />
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">BMI</span>
+        <input
+          type="float"
+          id="BMI"
+          value=""
+          class="form-control"
+          aria-label="Sizing example input"
+          disabled
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- {%if request.method == 'POST'%} -->
+
+<section class="result">
+  <div class="result"><h1>Result</h1></div>
+
+  <div id="intro-example" class="p-5 text-center bg-image">
+    <h1 class="prediction">{{result}}</h1>
+    <form action="" class="container">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Age</span>
+        <input
+          type="float"
+          class="form-control"
+          name="Age"
+          placeholder="{{age}}"
+          aria-label="Age"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+      <br />
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Gender</span>
+        <input
+          type="float"
+          class="form-control"
+          name="gender"
+          placeholder="{{gender}}"
+          aria-label="gender"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+      <br />
+
+      <div class="input-group mb-3" id="hyper1">
+        <span class="input-group-text" id="basic-addon1">Hypertension</span>
+        <input
+          type="float"
+          id="hyper"
+          class="form-control"
+          name="hyper"
+          placeholder="{{hypertension}}"
+          aria-label="hypertension"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+      <br />
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Heart Disease</span>
+        <input
+          type="float"
+          class="form-control"
+          name="heart"
+          placeholder="{{heart}}"
+          aria-label="heart"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+      <br />
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Marrage Status</span>
+        <input
+          type="float"
+          class="form-control"
+          name="marrage"
+          placeholder="{{marrage}}"
+          aria-label="marrage"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+      <br />
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Residence Area</span>
+        <input
+          type="float"
+          class="form-control"
+          name="residence"
+          placeholder="{{residence}}"
+          aria-label="residence"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+      <br />
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Glucose Level</span>
+        <input
+          type="float"
+          class="form-control"
+          name="Glucose"
+          placeholder=" {{sugar}}"
+          aria-label="SugarLevel"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+      <br />
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">BMI</span>
+        <input
+          type="float"
+          class="form-control"
+          name="BMI"
+          placeholder="{{bmi}}"
+          aria-label="BMI"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+      <br />
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Job Type</span>
+        <input
+          type="float"
+          class="form-control"
+          name="work"
+          placeholder="{{work}}"
+          aria-label="work"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+      <br />
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Smoking Status</span>
+        <input
+          type="float"
+          class="form-control"
+          name="smoke"
+          placeholder="{{smoke}}"
+          aria-label="smoke"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+      <br />
+    </form>
+    <a href="{% url 'form' %}" style="position: absolute; left: 155px"
+      ><button type="button" class="btn btn-primary">Predict Again</button></a
+    >
+  </div>
+</section>
+{% endif %} {% endblock %}
