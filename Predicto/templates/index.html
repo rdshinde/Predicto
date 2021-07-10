@@ -1,5 +1,5 @@
 {% extends 'base.html'%} {% block content %}
-
+{% if request.method != 'POST' %}
 <header class="masthead">
   <div class="justify-content-center">
     <div class="p-5 text-center">
@@ -38,11 +38,12 @@
     </div>
   </div>
 </header>
+
 <section class="prediction-form" id="p-form">
   <div id="intro-example" class="p-5 text-center bg-image">
     <div class="box">
       <h2 class="mb-4">Prediction Form</h2>
-      <form autocomplete="off" method="POST" action="{% url 'index' %}">
+      <form autocomplete="off" method="POST" action="">
         {% csrf_token %}
 
         <div class="input-group mb-3">
@@ -220,7 +221,7 @@
         />
       </div>
 
-      <button type="Submit" id="submit" class="btn btn-primary mb-4">
+      <button type="Submit" id="submit" class="btn btn-secondary mb-4">
         Calculate</button
       ><br /><br />
 
@@ -239,158 +240,178 @@
     </div>
   </div>
 </section>
+{% endif %}
+{%if request.method == 'POST' %}
 
-<!-- {%if request.method == 'POST'%} -->
+<section class="box1" id="result-section">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <div id="intro-example1" class="p-5 text-center bg-image">
+        <h1 class="prediction">{{result}}</h1>
+        <br /><br />
+        <form>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Age</span>
+            <input
+              type="float"
+              class="form-control"
+              name="Age"
+              value="{{age}}"
+              aria-label="Age"
+              aria-describedby="basic-addon1"
+              disabled
+            />
+          </div>
+          <br />
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Gender</span>
+            <input
+              type="float"
+              class="form-control"
+              name="gender"
+              value="{{gender}}"
+              aria-label="gender"
+              aria-describedby="basic-addon1"
+              disabled
+            />
+          </div>
+          <br />
 
-<section class="result">
-  <div class="result"><h1>Result</h1></div>
+          <div class="input-group mb-3" id="hyper1">
+            <span class="input-group-text" id="basic-addon1">Hypertension</span>
+            <input
+              type="float"
+              id="hyper"
+              class="form-control"
+              name="hyper"
+              value="{{hypertension}}"
+              aria-label="hypertension"
+              aria-describedby="basic-addon1"
+              disabled
+            />
+          </div>
+          <br />
 
-  <div id="intro-example" class="p-5 text-center bg-image">
-    <h1 class="prediction">{{result}}</h1>
-    <form action="" class="container">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Age</span>
-        <input
-          type="float"
-          class="form-control"
-          name="Age"
-          placeholder="{{age}}"
-          aria-label="Age"
-          aria-describedby="basic-addon1"
-          disabled
-        />
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"
+              >Heart Disease</span
+            >
+            <input
+              type="float"
+              class="form-control"
+              name="heart"
+              value="{{heart}}"
+              aria-label="heart"
+              aria-describedby="basic-addon1"
+              disabled
+            />
+          </div>
+          <br />
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"
+              >Marrage Status</span
+            >
+            <input
+              type="float"
+              class="form-control"
+              name="marrage"
+              value="{{marrage}}"
+              aria-label="marrage"
+              aria-describedby="basic-addon1"
+              disabled
+            />
+          </div>
+          <br />
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"
+              >Residence Area</span
+            >
+            <input
+              type="float"
+              class="form-control"
+              name="residence"
+              value="{{residence}}"
+              aria-label="residence"
+              aria-describedby="basic-addon1"
+              disabled
+            />
+          </div>
+          <br />
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"
+              >Glucose Level</span
+            >
+            <input
+              type="float"
+              class="form-control"
+              name="Glucose"
+              value=" {{sugar}}"
+              aria-label="SugarLevel"
+              aria-describedby="basic-addon1"
+              disabled
+            />
+          </div>
+          <br />
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">BMI</span>
+            <input
+              type="float"
+              class="form-control"
+              name="BMI"
+              value="{{bmi}}"
+              aria-label="BMI"
+              aria-describedby="basic-addon1"
+              disabled
+            />
+          </div>
+          <br />
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Job Type</span>
+            <input
+              type="float"
+              class="form-control"
+              name="work"
+              value="{{work}}"
+              aria-label="work"
+              aria-describedby="basic-addon1"
+              disabled
+            />
+          </div>
+          <br />
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"
+              >Smoking Status</span
+            >
+            <input
+              type="float"
+              class="form-control"
+              name="smoke"
+              value="{{smoke}}"
+              aria-label="smoke"
+              aria-describedby="basic-addon1"
+              disabled
+            />
+          </div>
+          <div class="mb-3">
+            <a href="{% url 'index' %}"
+              ><span
+                class="input-group-text btn btn-outline-light"
+                id="basic-addon1"
+                >Predict Again</span
+              ></a
+            >
+          </div>
+
+          <br />
+        </form>
       </div>
-      <br />
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Gender</span>
-        <input
-          type="float"
-          class="form-control"
-          name="gender"
-          placeholder="{{gender}}"
-          aria-label="gender"
-          aria-describedby="basic-addon1"
-          disabled
-        />
-      </div>
-      <br />
-
-      <div class="input-group mb-3" id="hyper1">
-        <span class="input-group-text" id="basic-addon1">Hypertension</span>
-        <input
-          type="float"
-          id="hyper"
-          class="form-control"
-          name="hyper"
-          placeholder="{{hypertension}}"
-          aria-label="hypertension"
-          aria-describedby="basic-addon1"
-          disabled
-        />
-      </div>
-      <br />
-
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Heart Disease</span>
-        <input
-          type="float"
-          class="form-control"
-          name="heart"
-          placeholder="{{heart}}"
-          aria-label="heart"
-          aria-describedby="basic-addon1"
-          disabled
-        />
-      </div>
-      <br />
-
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Marrage Status</span>
-        <input
-          type="float"
-          class="form-control"
-          name="marrage"
-          placeholder="{{marrage}}"
-          aria-label="marrage"
-          aria-describedby="basic-addon1"
-          disabled
-        />
-      </div>
-      <br />
-
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Residence Area</span>
-        <input
-          type="float"
-          class="form-control"
-          name="residence"
-          placeholder="{{residence}}"
-          aria-label="residence"
-          aria-describedby="basic-addon1"
-          disabled
-        />
-      </div>
-      <br />
-
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Glucose Level</span>
-        <input
-          type="float"
-          class="form-control"
-          name="Glucose"
-          placeholder=" {{sugar}}"
-          aria-label="SugarLevel"
-          aria-describedby="basic-addon1"
-          disabled
-        />
-      </div>
-      <br />
-
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">BMI</span>
-        <input
-          type="float"
-          class="form-control"
-          name="BMI"
-          placeholder="{{bmi}}"
-          aria-label="BMI"
-          aria-describedby="basic-addon1"
-          disabled
-        />
-      </div>
-      <br />
-
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Job Type</span>
-        <input
-          type="float"
-          class="form-control"
-          name="work"
-          placeholder="{{work}}"
-          aria-label="work"
-          aria-describedby="basic-addon1"
-          disabled
-        />
-      </div>
-      <br />
-
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Smoking Status</span>
-        <input
-          type="float"
-          class="form-control"
-          name="smoke"
-          placeholder="{{smoke}}"
-          aria-label="smoke"
-          aria-describedby="basic-addon1"
-          disabled
-        />
-      </div>
-      <br />
-    </form>
-    <a href="{% url 'form' %}" style="position: absolute; left: 155px"
-      ><button type="button" class="btn btn-primary">Predict Again</button></a
-    >
+    </div>
   </div>
 </section>
 {% endif %} {% endblock %}
