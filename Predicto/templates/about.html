@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block title %} Predicto | About {% endblock %}
+{%block content %}
+
+<div class="container position-relative px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <br />
+      <h1>Assertion Of Necessity</h1>
+      <br />
+      <p>
+        Stroke second leading cause of death worldwide and remains an important
+        health burden both for the individuals and for the national healthcare
+        systems.Potentially modifiable risk factors for stroke include hypertension,
+        cardiac disease, diabetes, and dysregulation of glucose metabolism,
+        atrial fibrillation, and lifestyle factors.
+      </p>
+      <img src="https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Emergency-Image" width="100%" height="20%" style="padding: 3%;">
+      <p>
+         Therefore, the goal of our
+        project is to apply principles of machine learning over large existing
+        data sets to effectively predict the stroke based on potentially
+        modifiable risk factors.
+      </p>
+      <p>
+        Then it intended to develop the application to provide a personalized
+        warning on the basis of each user’s level of stroke risk.
+      </p><br>
+      <h2>Some Facts About Stroke</h2><br>
+      <p>
+        Stroke is the second leading cause of death and leading cause of adult disability worldwide with 400-800 strokes per 100,000. 15 million new acute strokes every year 28,500,000 disability adjusted life-years and 28-30-day case fatality ranging from 17% to 35%. 
+      </p>
+      <p>The burden of stroke will likely worsen with stroke and heart disease related deaths projected to increase to five million in 2020, compared to three million in 1998. This will be a result of continuing health and demographic transition resulting in increase in vascular disease risk factors and population of the elderly. Developing countries account for 85% of the global deaths from stroke.</p>
+      <img src="https://images.pexels.com/photos/3921418/pexels-photo-3921418.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Stroke-Image" height="20%" width="100%" style="padding: 3%;">
+      <p>
+        Stroke can occur in anyone regardless of race, gender or age however the chances of having a stroke increase if an individual has certain risk factors that can cause a stroke. The best way to protect oneself and others is to understand personal risk and how to manage it.
+      </p>
+      <p>
+        More than 70% of strokes are first events, thus making primary stroke prevention a particularly important aspect. Interventions should be targeted at behaviour modification, which however requires information about the baseline perceptions, knowledge and prevalence of risk factors in defined populations.
+      </p>
+      <p>Owing to all of this we considered to make it serious by analyzing the effect of climate change on this crop and find some solutions on problems. Hence we selected this subject to study on.  
+    </p>
+    <div class="mb-3">
+        <a href="{% url 'index' %}"
+          ><span
+            class="input-group-text btn btn-outline-light"
+            id="basic-addon1"
+            >Go to the prediction form. </span
+          ></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
