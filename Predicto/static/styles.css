@@ -9,12 +9,7 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
 }
-title>h1{
-  text-decoration: none;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 70px;
-  font-weight: bolder;
-}
+
 .title {
   padding: 20px 10px 20px 10px;
   text-align: center;
@@ -23,6 +18,7 @@ title>h1{
 }
 
 .title > h1 {
+  text-decoration: none;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 70px;
   font-weight: bolder;
