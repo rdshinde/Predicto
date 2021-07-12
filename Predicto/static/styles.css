@@ -132,7 +132,7 @@ nav {
   .footer {
     text-align: center;
     color: white;
-    margin-top: 100%;
+    margin-top: 150%;
     position: relative;
   }
 
@@ -210,7 +210,7 @@ nav {
 }
 
 /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-@media (min-width: 641px) and (max-width: 1400px) {
+@media (min-width: 520px) and (max-width: 1400px) {
   .masthead {
     margin-bottom: 0%;
     margin-right: 10%;
